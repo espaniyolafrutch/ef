@@ -6,9 +6,12 @@
   <title>XXXXXXXXX</title>
   <!-- Import Cascadia Code font -->
   <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&display=swap" rel="stylesheet" />
+  <!-- Import Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     body {
-      background-color: #f3f3f3; /* changed from #e5e5e5 */
+      background-color: #000000;
       margin: 0;
       font-family: Arial, sans-serif;
       text-align: center;
@@ -16,14 +19,15 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      color: #ffffff;
     }
     .letters {
       margin-top: 40px;
     }
     .letter-box {
       display: inline-block;
-      background-color: black;
-      color: white;
+      background-color: #ffffff;
+      color: #000000;
       font-size: 1.6rem;
       padding: 10px 25px;
       margin: 0 10px;
@@ -31,19 +35,37 @@
       cursor: pointer;
       user-select: none;
       text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .letter-box:hover {
+      background-color: #1da1f2; /* Light blue background on hover */
+      color: #ffffff; /* White text on hover */
     }
     .image-row img {
-      width: 517px; /* decreased by 25% from 689px */
+      width: 517px;
       max-width: 90vw;
       border-radius: 8px;
-      margin: 30px auto;
+      margin: 30px auto 15px auto;
       display: block;
+    }
+    .social-icons {
+      margin-bottom: 30px;
+    }
+    .social-icons a {
+      color: #ffffff;
+      font-size: 2rem;
+      margin: 0 12px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #1da1f2; /* Light blue on hover */
     }
     footer {
       margin-top: auto;
       padding: 15px 0;
       font-family: 'Cascadia Code', monospace;
-      color: black;
+      color: #ffffff;
       font-size: 1.2rem;
     }
   </style>
@@ -53,14 +75,22 @@
     <a href="images.html" class="letter-box">Images</a>
     <a href="videos.html" class="letter-box">Videos</a>
     <a href="links.html" class="letter-box">Links</a>
-    <a href="about.html" class="letter-box">About</a>
+    <a href="profiles.html" class="letter-box">Profiles</a>
   </div>
 
   <div class="image-row">
     <img src="https://i.ibb.co/vxvtfgTy/photo-6111830005597195053-y.jpg" alt="photo-6111830005597195053-y" />
   </div>
 
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="#" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+  </div>
+
   <footer>espaniyolafrutch 2025</footer>
 </body>
 </html>
-
