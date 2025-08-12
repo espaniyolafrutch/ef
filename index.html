@@ -1,185 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EF</title>
-  <!-- Import Cascadia Code font -->
-  <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&display=swap" rel="stylesheet" />
-  <!-- Import Font Awesome for social icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <title>Password Redirect</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      background-color: #000000;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      color: #ffffff;
-    }
-    .letters {
-      margin-top: 40px;
-    }
-    .letter-box {
-      display: inline-block;
-      background-color: #ffffff;
-      color: #000000;
-      font-size: 1.6rem;
-      padding: 10px 25px;
-      margin: 0 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      user-select: none;
-      text-decoration: none;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    .letter-box:hover {
-      background-color: #1da1f2; /* Light blue background on hover */
-      color: #ffffff; /* White text on hover */
-    }
+    <!-- Green Dot Favicon -->
+    <link rel="icon" type="image/svg+xml" 
+          href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='16' cy='16' r='8' fill='green' /%3E%3C/svg%3E">
 
-    /* Slider styles */
-    .slider {
-      position: relative;
-      max-width: 520px;
-      margin: 30px auto 15px auto;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-    .slides {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      width: 100%;
-    }
-    .slides img {
-      width: 100%;
-      border-radius: 8px;
-      user-select: none;
-      pointer-events: none;
-    }
+    <style>
+        body {
+            font-family: 'Cascadia Code', 'Cascadia Mono', Consolas, monospace;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            background: linear-gradient(270deg, #0b0830, #1a0719);
+            background-size: 400% 400%;
+            animation: gradientFlow 12s ease infinite;
+        }
 
-    /* Navigation arrows - invisible but clickable */
-    .nav-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: transparent !important;
-      border: none;
-      color: transparent !important;
-      font-size: 2rem;
-      padding: 8px 14px;
-      cursor: pointer;
-      border-radius: 50%;
-      user-select: none;
-      transition: background 0.3s ease;
-      z-index: 10;
-      /* Keep width and height for clickable area */
-      width: 40px;
-      height: 40px;
-    }
-    .nav-arrow:hover {
-      background: rgba(255, 255, 255, 0.1); /* subtle highlight on hover */
-      color: #ffffff !important;
-    }
-    .prev {
-      left: 10px;
-    }
-    .next {
-      right: 10px;
-    }
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-    .social-icons {
-      margin-bottom: 30px;
-    }
-    .social-icons a {
-      color: #ffffff;
-      font-size: 2rem;
-      margin: 0 12px;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .social-icons a:hover {
-      color: #1da1f2; /* Light blue on hover */
-    }
-    footer {
-      margin-top: auto;
-      padding: 15px 0;
-      font-family: 'Cascadia Code', monospace;
-      color: #ffffff;
-      font-size: 1.2rem;
-    }
-  </style>
+        .box {
+            background: rgba(15, 15, 31, 0.9);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 300px;
+        }
+        input {
+            padding: 10px;
+            width: 90%;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #444;
+            background: #1e1e2f;
+            color: #fff;
+            font-family: inherit;
+        }
+        input::placeholder {
+            color: #888;
+        }
+        button {
+            padding: 10px 15px;
+            background: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: inherit;
+        }
+        button:hover {
+            background: #003f7f;
+        }
+    </style>
 </head>
 <body>
-  <div class="letters">
-    <a href="images.html" class="letter-box">Images</a>
-    <a href="videos.html" class="letter-box">Videos</a>
-    <a href="links.html" class="letter-box">Links</a>
-    <a href="profiles.html" class="letter-box">Profiles</a>
-  </div>
 
-  <!-- Slider Banner -->
-  <div class="slider" aria-label="Image slider">
-    <div class="slides">
-      <img src="https://i.ibb.co/vxvtfgTy/photo-6111830005597195053-y.jpg" alt="Slide 1" />
-      <img src="https://i.ibb.co/yBgDMKV4/photo-6111830005597195269-y.jpg" alt="Slide 2" />
-      <img src="https://i.ibb.co/GftFnq3W/photo-6111830005597195296-y.jpg" alt="Slide 3" />
-      <img src="https://i.ibb.co/b5RtvsRH/photo-6111830005597195289-y-1.jpg" alt="Slide 4" />
-      <!-- Additional empty slots for future images -->
-      <img src="https://i.ibb.co/rGMrRthb/photo-6111830005597195295-y.jpg" alt="Slide 5" />
-      <img src="https://i.ibb.co/B29Rqwz0/photo-6111830005597195290-y.jpg" alt="Slide 6" />
-      <img src="https://i.ibb.co/gbjvMvn3/photo-6111830005597195297-y.jpg" alt="Slide 7" />
-      <img src="https://i.ibb.co/SXvK9VFD/photo-6111830005597195288-y.jpg" alt="Slide 8" />
-      <img src="https://i.ibb.co/wFTdNdgZ/photo-6111830005597195293-y.jpg" alt="Slide 9" />
-      <img src="https://i.ibb.co/1GTmk6x7/photo-6111830005597195287-y.jpg" alt="Slide 10" />
-    </div>
-    <button class="nav-arrow prev" aria-label="Previous slide">&#10094;</button>
-    <button class="nav-arrow next" aria-label="Next slide">&#10095;</button>
-  </div>
+<div class="box">
+    <h2>Enter Password</h2>
+    <input type="password" id="password" placeholder="Type password">
+    <br>
+    <button onclick="checkPassword()">Login</button>
+</div>
 
-  <div class="social-icons">
-    <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
-    <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
-    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-    <a href="#" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-  </div>
+<script>
+    function checkPassword() {
+        let correctPassword = "shanupanty"; // change this to your password
+        let enteredPassword = document.getElementById("password").value;
 
-  <footer>espaniyolafrutch 2025</footer>
-
-  <script>
-    const slides = document.querySelector('.slides');
-    const slideImages = document.querySelectorAll('.slides img');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-
-    let currentIndex = 0;
-    const totalSlides = slideImages.length;
-
-    function updateSlider() {
-      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+        if (enteredPassword === correctPassword) {
+            window.location.href = "success.html";
+        } else {
+            window.location.href = "failure.html";
+        }
     }
 
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
-      updateSlider();
+    document.getElementById("password").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            checkPassword();
+        }
     });
+</script>
 
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlider();
-    });
-
-    // Optional: Auto slide every 5 seconds
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlider();
-    }, 5000);
-  </script>
 </body>
 </html>

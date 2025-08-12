@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EF</title>
+  <!-- Import Cascadia Code font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&display=swap" rel="stylesheet" />
+  <!-- Import Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Small white dot favicon -->
+  <link rel="icon" 
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Ccircle cx='4' cy='4' r='4' fill='white' /%3E%3C/svg%3E" 
+        type="image/svg+xml" />
+
+  <style>
+    body {
+      background-color: #000000;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      color: #ffffff;
+    }
+    .letters {
+      margin-top: 40px;
+    }
+    .letter-box {
+      display: inline-block;
+      color: #000000;
+      font-size: 1.6rem;
+      padding: 10px 25px;
+      margin: 0 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    /* Specific button colors */
+    .btn-images { background-color: #ff6363; }
+    .btn-videos { background-color: #8875ff; }
+    .btn-links { background-color: #ccff75; }
+    .btn-profiles { background-color: #ff78df; }
+    .btn-logout { background-color: #4efca5; }
+
+    .letter-box:hover {
+      filter: brightness(0.85);
+      color: #ffffff;
+    }
+
+    /* Slider styles */
+    .slider {
+      position: relative;
+      max-width: 520px;
+      margin: 30px auto 15px auto;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    .slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+    .slides img {
+      width: 100%;
+      border-radius: 8px;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Navigation arrows */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent !important;
+      border: none;
+      color: transparent !important;
+      font-size: 2rem;
+      padding: 8px 14px;
+      cursor: pointer;
+      border-radius: 50%;
+      user-select: none;
+      transition: background 0.3s ease;
+      z-index: 10;
+      width: 40px;
+      height: 40px;
+    }
+    .nav-arrow:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff !important;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .social-icons {
+      margin-bottom: 30px;
+    }
+    .social-icons a {
+      color: #ffffff;
+      font-size: 2rem;
+      margin: 0 12px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #1da1f2;
+    }
+    footer {
+      margin-top: auto;
+      padding: 15px 0;
+      font-family: 'Cascadia Code', monospace;
+      color: #ffffff;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="letters">
+    <a href="sum.html" class="letter-box btn-images">Images</a>
+    <a href="sum.html" class="letter-box btn-videos">Videos</a>
+    <a href="sum.html" class="letter-box btn-links">Links</a>
+    <a href="profiles.html" class="letter-box btn-profiles">Profiles</a>
+    <a href="index.html" class="letter-box btn-logout">Logout</a>
+  </div>
+
+  <!-- Slider Banner -->
+  <div class="slider" aria-label="Image slider">
+    <div class="slides">
+      <img src="https://i.ibb.co/vxvtfgTy/photo-6111830005597195053-y.jpg" alt="Slide 1" />
+      <img src="https://i.ibb.co/yBgDMKV4/photo-6111830005597195269-y.jpg" alt="Slide 2" />
+      <img src="https://i.ibb.co/GftFnq3W/photo-6111830005597195296-y.jpg" alt="Slide 3" />
+      <img src="https://i.ibb.co/b5RtvsRH/photo-6111830005597195289-y-1.jpg" alt="Slide 4" />
+      <img src="https://i.ibb.co/rGMrRthb/photo-6111830005597195295-y.jpg" alt="Slide 5" />
+      <img src="https://i.ibb.co/B29Rqwz0/photo-6111830005597195290-y.jpg" alt="Slide 6" />
+      <img src="https://i.ibb.co/gbjvMvn3/photo-6111830005597195297-y.jpg" alt="Slide 7" />
+      <img src="https://i.ibb.co/SXvK9VFD/photo-6111830005597195288-y.jpg" alt="Slide 8" />
+      <img src="https://i.ibb.co/wFTdNdgZ/photo-6111830005597195293-y.jpg" alt="Slide 9" />
+      <img src="https://i.ibb.co/1GTmk6x7/photo-6111830005597195287-y.jpg" alt="Slide 10" />
+    </div>
+    <button class="nav-arrow prev" aria-label="Previous slide">&#10094;</button>
+    <button class="nav-arrow next" aria-label="Next slide">&#10095;</button>
+  </div>
+
+  <div class="social-icons">
+    <a href="https://www.tiktok.com/@espaniyolafrutch" title="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="https://t.me/espaniyolafrutch2" title="Telegram"><i class="fab fa-telegram"></i></a>
+    <a href="https://www.youtube.com/@espaniyolafrutch/videos" title="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://x.com/espaniyolafrutc" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+  </div>
+
+  <footer>espaniyolafrutch 2025</footer>
+
+  <script>
+    const slides = document.querySelector('.slides');
+    const slideImages = document.querySelectorAll('.slides img');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+
+    let currentIndex = 0;
+    const totalSlides = slideImages.length;
+
+    function updateSlider() {
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex === 0) ? totalSlides - 1 : currentIndex - 1;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlider();
+    });
+
+    // Auto slide every 5 seconds
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlider();
+    }, 5000);
+  </script>
+</body>
+</html>
